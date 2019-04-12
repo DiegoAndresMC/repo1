@@ -29,7 +29,7 @@ def insert_default():
 def select_default():
 	post = Posts.query.filter_by(id=1).first()
 	print(post.title)
-	return "Query done."
+	return "Query done!"
 
 
 if __name__ == "__main__":
