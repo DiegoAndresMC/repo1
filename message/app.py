@@ -57,7 +57,7 @@ def login():
         if user and check_password_hash(user.password, request.form["password"]):
             session["username"] = user.username
             return "Logueado!!"
-        return "credenciales incorrectas, intente nuevamente."
+        flash("Credenciales malas, revisa", "success")
 
     return render_template("login.html")
 
