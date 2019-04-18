@@ -2,9 +2,30 @@ from flask import Flask
 
 app = Flask(__name__)
 
+request_status = ""
+
+@app.before_request
+def before_request():
+	global request_status
+	request_status += " Before request"
+	print("before")
+@app.after_request
+def after_request(response):
+	global request_status
+	request_status = request_status + " After Request"
+	print("afetr")
+	return response
+
+@app.teardown_request
+def teardown_request(response):
+	global request_status
+	request_status = request_status + " Teardown"
+	print("teardown")
+	return response
+
 @app.route("/")
 def index():
-    return "Hola"
+	return "Request Status: " + request_status
 
 if __name__ == "__main__":
     app.run(debug=True)
