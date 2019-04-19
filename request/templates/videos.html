@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Videos</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Videos</title>
+	<link rel="stylesheet" href="">
 </head>
-    <body>
-    <h1>Videos</h1>
+<body>
+	<h1>Videos</h1>
     {% if videos %}
     <p>{{ videos["videos"]["cns"][0]["title"] }}</p>
     {% else %}
     <p>No hay videos</p>
     {% endif %}
-    </body>
+</body>
 </html>
